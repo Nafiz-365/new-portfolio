@@ -65,6 +65,9 @@
                     background 0.25s,
                     color 0.25s;
             }
+            body.detail-open {
+                overflow: hidden;
+            }
             a {
                 color: inherit;
                 text-decoration: none;
@@ -170,7 +173,7 @@
             .nav-links {
                 display: flex;
                 align-items: center;
-                gap: 28px;
+                gap: 24px;
                 list-style: none;
             }
             .nav-links a {
@@ -546,47 +549,227 @@
                 text-align: right;
                 font-weight: 650;
             }
-            .skills-grid {
+            /* Categorized skills */
+            .skills-categorized {
                 display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 14px;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
             }
-            .skill-card {
-                padding: 23px;
+            .skill-category {
+                padding: 26px;
                 background: var(--panel);
                 border: 1px solid var(--line);
-                border-radius: 15px;
-                min-height: 170px;
+                border-radius: var(--radius);
                 transition:
                     transform 0.25s,
                     border-color 0.25s;
             }
-            .skill-card:hover {
-                transform: translateY(-5px);
-                border-color: rgba(255, 113, 59, 0.55);
+            .skill-category:hover {
+                transform: translateY(-4px);
+                border-color: rgba(255, 113, 59, 0.4);
             }
-            .skill-icon {
-                width: 42px;
-                height: 42px;
+            .category-head {
+                margin-bottom: 22px;
+                padding-bottom: 16px;
+                border-bottom: 1px solid var(--line);
+            }
+            .category-icon {
+                width: 40px;
+                height: 40px;
                 display: grid;
                 place-items: center;
-                border-radius: 12px;
-                color: var(--accent);
+                border-radius: 10px;
                 background: rgba(255, 113, 59, 0.1);
-                font:
-                    800 0.78rem ui-monospace,
-                    monospace;
-                margin-bottom: 17px;
+                color: var(--accent);
+                font-size: 0.72rem;
+                font-weight: 800;
+                letter-spacing: 0.04em;
+                margin-bottom: 12px;
             }
-            .skill-card h3 {
-                font-size: 0.95rem;
-                margin-bottom: 6px;
+            .category-head h3 {
+                font-size: 1.05rem;
+                margin-bottom: 4px;
+                letter-spacing: -0.01em;
             }
-            .skill-card p {
+            .category-head p {
                 color: var(--muted);
                 font-size: 0.78rem;
-                line-height: 1.55;
             }
+            .skill-bars {
+                display: grid;
+                gap: 16px;
+            }
+            .skill-bar-head {
+                display: flex;
+                justify-content: space-between;
+                gap: 8px;
+                margin-bottom: 7px;
+                font-size: 0.82rem;
+            }
+            .skill-name {
+                color: var(--text);
+                font-weight: 550;
+            }
+            .skill-pct {
+                color: var(--muted);
+                font:
+                    0.7rem ui-monospace,
+                    monospace;
+                font-weight: 600;
+            }
+            .skill-bar {
+                height: 6px;
+                background: var(--bg-soft);
+                border-radius: 99px;
+                overflow: hidden;
+                border: 1px solid var(--line);
+            }
+            .skill-bar-fill {
+                height: 100%;
+                background: linear-gradient(
+                    90deg,
+                    var(--accent),
+                    var(--accent-hover)
+                );
+                border-radius: 99px;
+            }
+            /* Education */
+            .education-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+            .edu-card {
+                padding: 26px;
+                background: var(--panel);
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                position: relative;
+                transition:
+                    transform 0.25s,
+                    border-color 0.25s;
+            }
+            .edu-card:hover {
+                transform: translateY(-4px);
+                border-color: rgba(255, 113, 59, 0.4);
+            }
+            .edu-icon {
+                font-size: 2rem;
+                margin-bottom: 14px;
+                line-height: 1;
+            }
+            .edu-year {
+                color: var(--accent);
+                font:
+                    0.72rem ui-monospace,
+                    monospace;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                margin-bottom: 8px;
+            }
+            .edu-card h3 {
+                font-size: 1.1rem;
+                margin-bottom: 6px;
+                letter-spacing: -0.02em;
+            }
+            .edu-institute {
+                color: var(--muted);
+                font-size: 0.82rem;
+                margin-bottom: 12px;
+            }
+            .edu-card p {
+                color: var(--muted);
+                font-size: 0.87rem;
+                line-height: 1.6;
+                margin-bottom: 16px;
+            }
+            .edu-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+            .edu-tags span {
+                padding: 4px 9px;
+                background: var(--bg-soft);
+                border: 1px solid var(--line);
+                border-radius: 6px;
+                font-size: 0.68rem;
+                color: var(--muted);
+            }
+            .edu-badge {
+                position: absolute;
+                top: 18px;
+                right: 18px;
+                background: var(--accent);
+                color: #fff;
+                font-size: 0.65rem;
+                font-weight: 800;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                padding: 4px 10px;
+                border-radius: 99px;
+            }
+            /* Experience */
+            .experience-list {
+                display: grid;
+                gap: 16px;
+            }
+            .exp-item {
+                display: grid;
+                grid-template-columns: 160px 1fr;
+                gap: 30px;
+                padding: 26px;
+                background: var(--panel);
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                transition:
+                    transform 0.25s,
+                    border-color 0.25s;
+            }
+            .exp-item:hover {
+                transform: translateY(-3px);
+                border-color: rgba(255, 113, 59, 0.4);
+            }
+            .exp-period {
+                color: var(--accent);
+                font:
+                    0.72rem ui-monospace,
+                    monospace;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                padding-top: 4px;
+            }
+            .exp-content h3 {
+                font-size: 1.15rem;
+                margin-bottom: 5px;
+                letter-spacing: -0.02em;
+            }
+            .exp-role {
+                color: var(--muted);
+                font-size: 0.82rem;
+                margin-bottom: 12px;
+            }
+            .exp-content p {
+                color: var(--muted);
+                font-size: 0.9rem;
+                line-height: 1.65;
+                margin-bottom: 14px;
+                max-width: 700px;
+            }
+            .exp-skills {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+            .exp-skills span {
+                padding: 4px 9px;
+                background: var(--bg-soft);
+                border: 1px solid var(--line);
+                border-radius: 6px;
+                font-size: 0.68rem;
+                color: var(--muted);
+            }
+            /* Projects */
             .project-grid {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -718,13 +901,17 @@
             .project-links {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 16px;
+                align-items: center;
+                gap: 12px;
                 margin-top: 19px;
+                padding-top: 18px;
+                border-top: 1px solid var(--line);
             }
             .project-links a {
-                color: var(--text);
+                color: var(--muted);
                 font-size: 0.79rem;
-                font-weight: 700;
+                font-weight: 650;
+                transition: color 0.2s;
             }
             .project-links a:hover {
                 color: var(--accent);
@@ -732,7 +919,26 @@
             .project-links .pending {
                 color: var(--muted);
                 font-weight: 500;
-                font-size: 0.76rem;
+                font-size: 0.72rem;
+            }
+            .view-details-btn {
+                background: var(--accent);
+                color: #fff;
+                border: none;
+                padding: 9px 16px;
+                min-height: 40px;
+                border-radius: 9px;
+                font-size: 0.79rem;
+                font-weight: 700;
+                cursor: pointer;
+                transition:
+                    background 0.2s,
+                    transform 0.2s;
+                margin-right: auto;
+            }
+            .view-details-btn:hover {
+                background: var(--accent-hover);
+                transform: translateY(-1px);
             }
             .journey-grid {
                 display: grid;
@@ -817,11 +1023,11 @@
             }
             .contact-details {
                 display: grid;
-                gap: 14px;
+                gap: 12px;
                 align-content: center;
             }
             .contact-item {
-                padding: 17px;
+                padding: 15px 17px;
                 border: 1px solid var(--line);
                 border-radius: 12px;
                 background: var(--bg);
@@ -886,9 +1092,176 @@
                 font-size: 0.75rem;
                 margin-top: 14px;
             }
+            /* Project detail page */
+            .detail-page {
+                position: fixed;
+                inset: 0;
+                z-index: 200;
+                background: var(--bg);
+                overflow-y: auto;
+                display: none;
+            }
+            .detail-page.open {
+                display: block;
+            }
+            .detail-inner {
+                width: min(var(--max), calc(100% - 48px));
+                margin: 0 auto;
+                padding: 30px 0 80px;
+            }
+            .detail-back {
+                background: transparent;
+                border: 1px solid var(--line);
+                color: var(--text);
+                padding: 10px 16px;
+                border-radius: 10px;
+                font-size: 0.82rem;
+                font-weight: 650;
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                margin-bottom: 30px;
+                transition: border-color 0.2s;
+            }
+            .detail-back:hover {
+                border-color: var(--accent);
+            }
+            .detail-hero {
+                padding: 20px 0 40px;
+                border-bottom: 1px solid var(--line);
+                margin-bottom: 40px;
+            }
+            .detail-status {
+                display: inline-block;
+                padding: 4px 10px;
+                border: 1px solid var(--accent);
+                border-radius: 99px;
+                color: var(--accent);
+                font-size: 0.7rem;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                margin-bottom: 16px;
+            }
+            .detail-number {
+                color: var(--accent);
+                font:
+                    0.75rem ui-monospace,
+                    monospace;
+                letter-spacing: 0.08em;
+                margin-bottom: 8px;
+            }
+            .detail-title {
+                font-size: clamp(1.8rem, 4vw, 2.8rem);
+                line-height: 1.1;
+                letter-spacing: -0.045em;
+                margin-bottom: 8px;
+                font-weight: 800;
+            }
+            .detail-subtitle {
+                color: var(--accent);
+                font-size: 1rem;
+                font-weight: 600;
+                margin-bottom: 20px;
+                letter-spacing: -0.01em;
+            }
+            .detail-intro {
+                color: var(--muted);
+                font-size: 1rem;
+                max-width: 720px;
+                line-height: 1.75;
+            }
+            .detail-layout {
+                display: grid;
+                grid-template-columns: 1.6fr 1fr;
+                gap: 40px;
+                align-items: start;
+            }
+            .detail-main {
+                min-width: 0;
+            }
+            .detail-side {
+                display: grid;
+                gap: 18px;
+                position: sticky;
+                top: 30px;
+            }
+            .detail-section {
+                margin-bottom: 36px;
+            }
+            .detail-section h2 {
+                font-size: 1.25rem;
+                letter-spacing: -0.02em;
+                margin-bottom: 16px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid var(--line);
+                font-weight: 750;
+                margin-top: 0;
+            }
+            .detail-list {
+                list-style: none;
+                padding: 0;
+                display: grid;
+                gap: 12px;
+            }
+            .detail-list li {
+                padding-left: 22px;
+                position: relative;
+                color: var(--muted);
+                font-size: 0.92rem;
+                line-height: 1.7;
+            }
+            .detail-list li::before {
+                content: "→";
+                position: absolute;
+                left: 0;
+                color: var(--accent);
+                font-weight: 700;
+            }
+            .detail-card {
+                padding: 22px;
+                background: var(--panel);
+                border: 1px solid var(--line);
+                border-radius: 14px;
+            }
+            .detail-card h3 {
+                font-size: 0.82rem;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--muted);
+                margin-bottom: 14px;
+                font-weight: 700;
+            }
+            .detail-links {
+                display: grid;
+                gap: 10px;
+            }
+            .detail-links a,
+            .detail-links .pending {
+                padding: 11px 14px;
+                background: var(--bg-soft);
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                color: var(--text);
+                font-size: 0.84rem;
+                font-weight: 650;
+                transition:
+                    border-color 0.2s,
+                    background 0.2s;
+                display: block;
+            }
+            .detail-links a:hover {
+                border-color: var(--accent);
+                background: var(--panel);
+            }
+            .detail-links .pending {
+                color: var(--muted);
+                font-weight: 500;
+                font-size: 0.8rem;
+            }
             @media (max-width: 900px) {
                 .nav-links {
-                    gap: 17px;
+                    gap: 15px;
                 }
                 .hero-grid {
                     grid-template-columns: 1fr 0.78fr;
@@ -910,8 +1283,17 @@
                 .journey-grid {
                     gap: 38px;
                 }
-                .skills-grid {
-                    grid-template-columns: repeat(2, 1fr);
+                .skills-categorized {
+                    grid-template-columns: 1fr;
+                }
+                .education-grid {
+                    grid-template-columns: 1fr;
+                }
+                .detail-layout {
+                    grid-template-columns: 1fr;
+                }
+                .detail-side {
+                    position: static;
                 }
             }
             @media (max-width: 700px) {
@@ -986,12 +1368,9 @@
                     grid-template-columns: 1fr;
                     gap: 28px;
                 }
-                .skills-grid {
+                .exp-item {
+                    grid-template-columns: 1fr;
                     gap: 10px;
-                }
-                .skill-card {
-                    padding: 17px;
-                    min-height: 155px;
                 }
                 .project-grid {
                     grid-template-columns: 1fr;
@@ -1006,6 +1385,10 @@
                     align-items: flex-start;
                     flex-direction: column;
                 }
+                .detail-inner {
+                    width: min(var(--max), calc(100% - 34px));
+                    padding: 20px 0 60px;
+                }
             }
             @media (max-width: 390px) {
                 .brand {
@@ -1014,12 +1397,6 @@
                 .brand-mark {
                     width: 34px;
                     height: 34px;
-                }
-                .skills-grid {
-                    grid-template-columns: 1fr 1fr;
-                }
-                .skill-card p {
-                    font-size: 0.74rem;
                 }
                 .float-tag {
                     font-size: 0.69rem;
@@ -1061,8 +1438,9 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#skills">Skills</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#experience">Experience</a></li>
                         <li><a href="#projects">Projects</a></li>
-                        <li><a href="#journey">Journey</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
@@ -1093,8 +1471,8 @@
                 <div class="container hero-grid">
                     <div class="hero-content">
                         <div class="availability">
-                            <span class="status-dot"></span> CS student ·
-                            Growing as a web developer
+                            <span class="status-dot"></span> CS student · Web
+                            Developer
                         </div>
                         <p class="eyebrow">Hello, I'm Nafiz Kamal Talha</p>
                         <h1>
@@ -1102,7 +1480,7 @@
                             <span class="accent">web.</span>
                         </h1>
                         <p class="hero-copy">
-                            I'm a Computer Science student and aspiring
+                            I'm a Computer Science student and
                             <strong>web developer</strong>, focused on learning
                             the fundamentals, building real projects, and
                             turning ideas into clean, responsive web
@@ -1110,9 +1488,34 @@
                         </p>
                         <div class="button-row">
                             <a class="btn btn-primary" href="#projects"
-                                >Explore my projects
+                                >Explore projects
                                 <span aria-hidden="true">↗</span></a
                             >
+                            <!-- Resume file: place your PDF at Assets/Resume.pdf -->
+                            <a
+                                class="btn btn-primary"
+                                href="Assets/Resume.pdf"
+                                download="Nafiz_Kamal_Talha_Resume.pdf"
+                            >
+                                <svg
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"
+                                    />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg>
+                                Download Resume
+                            </a>
                             <a class="btn btn-secondary" href="#contact"
                                 >Let's connect
                                 <span aria-hidden="true">→</span></a
@@ -1203,31 +1606,48 @@
                             <p>
                                 I'm currently completing my BSc (Honours) in
                                 Computer Science at Metropolitan University,
-                                Bangladesh. Alongside my studies, I'm building
-                                real, working applications — from responsive
-                                HTML/CSS landing pages to full-stack production
-                                deployments.
+                                Bangladesh. My journey into programming started
+                                with simple HTML pages — curiosity about how
+                                websites actually worked — and gradually grew
+                                into a serious interest in full-stack
+                                development, databases, and shipping things
+                                people can actually use.
                             </p>
                             <p>
-                                My most recent project is
-                                <strong>CF Visualizer</strong>, a full-stack
-                                analytics platform for competitive programmers
-                                that combines a rate-limited Codeforces API
-                                proxy with Gemini/GPT AI coaching. I've also
-                                shipped <strong>FinanceFlow Pro</strong> (a live
+                                I enjoy building things that solve real
+                                problems, even small ones. My most recent
+                                project is <strong>CF Visualizer</strong>, a
+                                full-stack analytics platform for competitive
+                                programmers that combines a rate-limited
+                                Codeforces API proxy with Gemini/GPT AI
+                                coaching. I've also shipped
+                                <strong>FinanceFlow Pro</strong> (a live
                                 accounting app), built
                                 <strong>Varsity Portal</strong> (a role-based
                                 attendance system with Next.js &amp; Prisma),
                                 created <strong>Dev Stack</strong> (a React 19 +
                                 TypeScript stack builder demonstrating the new
-                                <code>use()</code> hook), and published two pure
-                                HTML/CSS landing pages.
+                                <code>use()</code> hook), and deployed several
+                                landing pages built entirely with pure HTML and
+                                CSS.
+                            </p>
+                            <p>
+                                Outside of programming, I value continuous
+                                learning and spending time with the people I
+                                care about. I enjoy exploring new places,
+                                following how technology reshapes daily life,
+                                and unwinding with a good conversation or a
+                                quiet evening. I believe stepping away from the
+                                screen is often what makes the time
+                                <em>at</em> the screen more productive — the
+                                best ideas usually show up during a walk, a cup
+                                of tea, or a break from the problem.
                             </p>
                             <p>
                                 I'm at the beginning of my professional journey,
                                 so this portfolio focuses on my learning,
                                 practice, and real project work rather than
-                                claiming professional experience I haven't had.
+                                claiming experience I haven't had.
                             </p>
                         </div>
                         <div class="fact-list">
@@ -1263,74 +1683,394 @@
                         </div>
                         <p class="section-description">
                             A snapshot of the technologies I'm studying and
-                            practising. Skill levels grow with practice, so this
-                            list reflects my current learning path—not a claim
-                            of expert-level proficiency.
+                            practising, organized by area. The percentages
+                            reflect my honest self-assessment of current comfort
+                            level — not expert claims, just where I am today.
                         </p>
                     </div>
-                    <div class="skills-grid">
-                        <article class="skill-card reveal">
-                            <div class="skill-icon">HTML</div>
-                            <h3>HTML5</h3>
+                    <div class="skills-categorized">
+                        <article class="skill-category reveal">
+                            <div class="category-head">
+                                <div class="category-icon">FE</div>
+                                <h3>Frontend</h3>
+                                <p>Interfaces, layouts, and interaction.</p>
+                            </div>
+                            <div class="skill-bars">
+                                <div>
+                                    <div class="skill-bar-head">
+                                        <span class="skill-name">HTML5</span>
+                                        <span class="skill-pct">85%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div
+                                            class="skill-bar-fill"
+                                            style="width: 85%"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="skill-bar-head">
+                                        <span class="skill-name"
+                                            >CSS3 &amp; Tailwind</span
+                                        >
+                                        <span class="skill-pct">82%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div
+                                            class="skill-bar-fill"
+                                            style="width: 82%"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="skill-bar-head">
+                                        <span class="skill-name"
+                                            >JavaScript</span
+                                        >
+                                        <span class="skill-pct">78%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div
+                                            class="skill-bar-fill"
+                                            style="width: 78%"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="skill-bar-head">
+                                        <span class="skill-name"
+                                            >TypeScript</span
+                                        >
+                                        <span class="skill-pct">72%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div
+                                            class="skill-bar-fill"
+                                            style="width: 72%"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="skill-bar-head">
+                                        <span class="skill-name"
+                                            >React &amp; Next.js</span
+                                        >
+                                        <span class="skill-pct">70%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div
+                                            class="skill-bar-fill"
+                                            style="width: 70%"
+                                        ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="skill-category reveal delay-1">
+                            <div class="category-head">
+                                <div class="category-icon">BE</div>
+                                <h3>Backend &amp; Data</h3>
+                                <p>APIs, servers, and persistence.</p>
+                            </div>
+                            <div class="skill-bars">
+                                <div>
+                                    <div class="skill-bar-head">
+                                        <span class="skill-name"
+                                            >Node.js &amp; Express</span
+                                        >
+                                        <span class="skill-pct">65%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div
+                                            class="skill-bar-fill"
+                                            style="width: 65%"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="skill-bar-head">
+                                        <span class="skill-name"
+                                            >REST API Design</span
+                                        >
+                                        <span class="skill-pct">65%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div
+                                            class="skill-bar-fill"
+                                            style="width: 65%"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="skill-bar-head">
+                                        <span class="skill-name"
+                                            >Prisma · MySQL · SQLite</span
+                                        >
+                                        <span class="skill-pct">62%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div
+                                            class="skill-bar-fill"
+                                            style="width: 62%"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="skill-bar-head">
+                                        <span class="skill-name"
+                                            >Auth &amp; Security</span
+                                        >
+                                        <span class="skill-pct">60%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div
+                                            class="skill-bar-fill"
+                                            style="width: 60%"
+                                        ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="skill-category reveal delay-2">
+                            <div class="category-head">
+                                <div class="category-icon">TL</div>
+                                <h3>Tools &amp; Deploy</h3>
+                                <p>Version control, build, and shipping.</p>
+                            </div>
+                            <div class="skill-bars">
+                                <div>
+                                    <div class="skill-bar-head">
+                                        <span class="skill-name"
+                                            >Git &amp; GitHub</span
+                                        >
+                                        <span class="skill-pct">80%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div
+                                            class="skill-bar-fill"
+                                            style="width: 80%"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="skill-bar-head">
+                                        <span class="skill-name"
+                                            >Vercel · Netlify · Heroku</span
+                                        >
+                                        <span class="skill-pct">75%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div
+                                            class="skill-bar-fill"
+                                            style="width: 75%"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="skill-bar-head">
+                                        <span class="skill-name"
+                                            >Vite · Turbopack</span
+                                        >
+                                        <span class="skill-pct">72%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div
+                                            class="skill-bar-fill"
+                                            style="width: 72%"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="skill-bar-head">
+                                        <span class="skill-name"
+                                            >Figma / UI Design</span
+                                        >
+                                        <span class="skill-pct">55%</span>
+                                    </div>
+                                    <div class="skill-bar">
+                                        <div
+                                            class="skill-bar-fill"
+                                            style="width: 55%"
+                                        ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EDUCATION -->
+            <section class="section" id="education">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <div>
+                            <p class="eyebrow">03 — Education</p>
+                            <h2>
+                                Learning the<br /><span class="accent"
+                                    >craft formally.</span
+                                >
+                            </h2>
+                        </div>
+                        <p class="section-description">
+                            My academic background in computer science, plus the
+                            foundational schooling that led here.
+                        </p>
+                    </div>
+                    <div class="education-grid">
+                        <article class="edu-card reveal">
+                            <div class="edu-badge">Current</div>
+                            <div class="edu-icon">🎓</div>
+                            <div class="edu-year">Ongoing</div>
+                            <h3>BSc (Honours) in Computer Science</h3>
+                            <div class="edu-institute">
+                                Metropolitan University · Bangladesh
+                            </div>
                             <p>
-                                Semantic structure and accessible page
-                                foundations.
+                                Studying core computer science — data
+                                structures, algorithms, database systems,
+                                software engineering, and modern web development
+                                — alongside hands-on project work that turns
+                                theory into shipped code.
+                            </p>
+                            <div class="edu-tags">
+                                <span>Data Structures</span>
+                                <span>Algorithms</span>
+                                <span>Databases</span>
+                                <span>Software Engineering</span>
+                                <span>Web Development</span>
+                            </div>
+                        </article>
+
+                        <article class="edu-card reveal delay-1">
+                            <div class="edu-icon">📚</div>
+                            <div class="edu-year">Completed</div>
+                            <h3>Higher Secondary Certificate (HSC)</h3>
+                            <div class="edu-institute">
+                                Science Group · Bangladesh
+                                <!-- EDIT: add your specific college name if you'd like -->
+                            </div>
+                            <p>
+                                Completed HSC in the Science stream, building
+                                the analytical and mathematical foundation that
+                                led me toward computer science and software
+                                engineering.
                             </p>
                         </article>
-                        <article class="skill-card reveal delay-1">
-                            <div class="skill-icon">CSS</div>
-                            <h3>CSS3 & Tailwind</h3>
+
+                        <article class="edu-card reveal delay-2">
+                            <div class="edu-icon">🏫</div>
+                            <div class="edu-year">Completed</div>
+                            <h3>Secondary School Certificate (SSC)</h3>
+                            <div class="edu-institute">
+                                Science Group · Bangladesh
+                                <!-- EDIT: add your specific school name if you'd like -->
+                            </div>
                             <p>
-                                Responsive layouts, utility-first styling, grid,
-                                flexbox and motion.
+                                Completed SSC in the Science stream — where an
+                                early interest in computers, logic, and
+                                problem-solving first took root.
                             </p>
                         </article>
-                        <article class="skill-card reveal delay-2">
-                            <div class="skill-icon">JS</div>
-                            <h3>JavaScript</h3>
-                            <p>
-                                Core language concepts, async, DOM, and
-                                interactive interfaces.
-                            </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- EXPERIENCE -->
+            <section class="section" id="experience">
+                <div class="container">
+                    <div class="section-head reveal">
+                        <div>
+                            <p class="eyebrow">04 — Experience</p>
+                            <h2>
+                                Self-directed<br /><span class="accent"
+                                    >in practice.</span
+                                >
+                            </h2>
+                        </div>
+                        <p class="section-description">
+                            I'm early in my career, so my professional
+                            experience comes from self-directed project work and
+                            academic practice rather than formal employment.
+                            Here's what that looks like.
+                        </p>
+                    </div>
+                    <div class="experience-list">
+                        <article class="exp-item reveal">
+                            <div class="exp-period">2024 — Present</div>
+                            <div class="exp-content">
+                                <h3>Self-Directed Web Development</h3>
+                                <div class="exp-role">
+                                    Independent · Bangladesh
+                                </div>
+                                <p>
+                                    Building and deploying full-stack web
+                                    applications end-to-end — from responsive
+                                    landing pages in pure HTML/CSS to production
+                                    Next.js apps with authentication, databases,
+                                    and AI integrations. Every project on this
+                                    portfolio is self-designed, self-built, and
+                                    self-deployed.
+                                </p>
+                                <div class="exp-skills">
+                                    <span>Full-Stack</span>
+                                    <span>UI Design</span>
+                                    <span>Deployment</span>
+                                    <span>Debugging</span>
+                                </div>
+                            </div>
                         </article>
-                        <article class="skill-card reveal delay-3">
-                            <div class="skill-icon">TS</div>
-                            <h3>TypeScript</h3>
-                            <p>
-                                Types, interfaces, and type-safe application
-                                code.
-                            </p>
+
+                        <article class="exp-item reveal delay-1">
+                            <div class="exp-period">2024 — Present</div>
+                            <div class="exp-content">
+                                <h3>
+                                    Academic Projects — BSc Computer Science
+                                </h3>
+                                <div class="exp-role">
+                                    Metropolitan University · Bangladesh
+                                </div>
+                                <p>
+                                    Applying coursework in data structures,
+                                    databases, and software engineering to real
+                                    project work. Regular practice turning
+                                    theory into working code — from small CLI
+                                    exercises to full-stack web apps deployed
+                                    live.
+                                </p>
+                                <div class="exp-skills">
+                                    <span>Problem Solving</span>
+                                    <span>Teamwork</span>
+                                    <span>Code Review</span>
+                                </div>
+                            </div>
                         </article>
-                        <article class="skill-card reveal">
-                            <div class="skill-icon">RE</div>
-                            <h3>React & Next.js</h3>
-                            <p>
-                                Components, hooks, App Router, server/client
-                                rendering and data fetching.
-                            </p>
-                        </article>
-                        <article class="skill-card reveal delay-1">
-                            <div class="skill-icon">API</div>
-                            <h3>Backend & REST APIs</h3>
-                            <p>
-                                Node.js, Express, HTTP, routing, and API design.
-                            </p>
-                        </article>
-                        <article class="skill-card reveal delay-2">
-                            <div class="skill-icon">DB</div>
-                            <h3>Prisma, MySQL & SQLite</h3>
-                            <p>
-                                Schema design, relational queries, migrations,
-                                and cloud SQLite.
-                            </p>
-                        </article>
-                        <article class="skill-card reveal delay-3">
-                            <div class="skill-icon">AUTH</div>
-                            <h3>Auth & Security</h3>
-                            <p>
-                                JWT (HttpOnly cookies), bcrypt hashing, RBAC
-                                middleware, and BetterAuth with OAuth providers.
-                            </p>
+
+                        <article class="exp-item reveal delay-2">
+                            <div class="exp-period">Ongoing</div>
+                            <div class="exp-content">
+                                <h3>Open Learning &amp; Self-Study</h3>
+                                <div class="exp-role">
+                                    Documentation, tutorials, communities
+                                </div>
+                                <p>
+                                    Continuously learning through official
+                                    documentation, community discussions, and
+                                    hands-on exploration of new tools — most
+                                    recently React 19's compiler and
+                                    <code>use()</code> hook, BetterAuth's
+                                    MongoDB adapter pattern, and integrating
+                                    multiple LLM providers with proper
+                                    fallbacks.
+                                </p>
+                                <div class="exp-skills">
+                                    <span>React 19</span>
+                                    <span>BetterAuth</span>
+                                    <span>LLM Integration</span>
+                                </div>
+                            </div>
                         </article>
                     </div>
                 </div>
@@ -1341,7 +2081,7 @@
                 <div class="container">
                     <div class="section-head reveal">
                         <div>
-                            <p class="eyebrow">03 — Selected work</p>
+                            <p class="eyebrow">05 — Selected work</p>
                             <h2>
                                 Learning by<br /><span class="accent"
                                     >building.</span
@@ -1351,8 +2091,8 @@
                         <p class="section-description">
                             Full-stack applications, AI-powered tools, and
                             responsive landing pages I've designed, built, and
-                            shipped. Live demos and source code are linked where
-                            available.
+                            shipped. Click "View Details" on any card for the
+                            full story — stack, challenges, and future plans.
                         </p>
                     </div>
                     <div class="project-grid">
@@ -1533,36 +2273,35 @@
                                     A full-stack analytics platform for
                                     competitive programmers with AI coaching,
                                     contest debriefs, and weakness analysis.
-                                    Features a custom LRU cache + 250ms
-                                    rate-limiter proxy around the Codeforces API
-                                    to prevent <code>429</code> errors,
+                                    Rate-limited Codeforces API proxy,
                                     Turso/libSQL persistence, HttpOnly JWT auth,
-                                    and multi-provider AI support (Gemini /
-                                    GPT-4o-mini via OpenRouter). Includes
-                                    heatmaps, rating charts, radar strength
-                                    mapping, problem bookmarking with tags, and
-                                    shareable profile cards.
+                                    and multi-provider AI support.
                                 </p>
                                 <div class="tags">
                                     <span>React 19</span><span>TypeScript</span
                                     ><span>Express.js</span
                                     ><span>SQLite / Turso</span
-                                    ><span>JWT Auth</span><span>Gemini AI</span
-                                    ><span>Recharts</span
-                                    ><span>Tailwind v4</span><span>Vercel</span>
+                                    ><span>Gemini AI</span><span>Vercel</span>
                                 </div>
                                 <div class="project-links">
+                                    <button
+                                        type="button"
+                                        class="view-details-btn"
+                                        data-project="cf-visualizer"
+                                    >
+                                        View Details →
+                                    </button>
                                     <a
                                         href="https://cf-visualizer-project.vercel.app/"
                                         target="_blank"
                                         rel="noopener"
-                                        >Live Demo ↗</a
+                                        >Live ↗</a
                                     >
                                     <a
                                         href="https://github.com/nafiz-365/nafiz-365-cf-visualizer-project"
                                         target="_blank"
                                         rel="noopener"
-                                        >Source Code ↗</a
+                                        >Code ↗</a
                                     >
                                 </div>
                             </div>
@@ -1673,28 +2412,33 @@
                                     a chart of accounts, journal and adjusting
                                     entries, and auto-generated General Ledger,
                                     Trial Balance, Income Statement, and Balance
-                                    Sheet reports. Includes multi-currency
-                                    formatting, printable reports, dark/light
-                                    themes, and a responsive UI.
+                                    Sheet reports.
                                 </p>
                                 <div class="tags">
                                     <span>React 19</span><span>Vite</span
                                     ><span>Tailwind CSS</span
                                     ><span>Express.js</span><span>SQLite</span
-                                    ><span>JWT Auth</span><span>REST API</span>
+                                    ><span>JWT</span>
                                 </div>
                                 <div class="project-links">
+                                    <button
+                                        type="button"
+                                        class="view-details-btn"
+                                        data-project="financeflow"
+                                    >
+                                        View Details →
+                                    </button>
                                     <a
                                         href="https://accounting-app-nafiz-365.netlify.app/"
                                         target="_blank"
                                         rel="noopener"
-                                        >Live Demo ↗</a
+                                        >Live ↗</a
                                     >
                                     <a
                                         href="https://github.com/nafiz-365/nafiz-365-accounting-app"
                                         target="_blank"
                                         rel="noopener"
-                                        >Source Code ↗</a
+                                        >Code ↗</a
                                     >
                                 </div>
                             </div>
@@ -1932,30 +2676,32 @@
                                 <p>
                                     A full-stack university attendance system
                                     with role-based dashboards for admins,
-                                    teachers, and students. Features JWT
-                                    authentication with middleware route
-                                    protection, timetable scheduling, bulk
-                                    attendance marking, leave request workflows,
-                                    broadcast notices, Excel bulk import, and
-                                    PDF/Excel report exports.
+                                    teachers, and students. JWT auth with
+                                    middleware route protection, timetable
+                                    scheduling, bulk attendance marking, leave
+                                    workflows, and Excel/PDF exports.
                                 </p>
                                 <div class="tags">
                                     <span>Next.js 16</span
-                                    ><span>TypeScript</span><span>React 19</span
-                                    ><span>Prisma</span><span>MySQL</span
-                                    ><span>Tailwind CSS</span
-                                    ><span>Radix UI</span><span>JWT</span>
+                                    ><span>TypeScript</span><span>Prisma</span
+                                    ><span>MySQL</span><span>Tailwind</span
+                                    ><span>JWT</span>
                                 </div>
                                 <div class="project-links">
+                                    <button
+                                        type="button"
+                                        class="view-details-btn"
+                                        data-project="varsity-portal"
+                                    >
+                                        View Details →
+                                    </button>
                                     <a
                                         href="https://github.com/nafiz-365/nafiz-365-attendance-system"
                                         target="_blank"
                                         rel="noopener"
-                                        >Source Code ↗</a
+                                        >Code ↗</a
                                     >
-                                    <span class="pending"
-                                        >Live demo not yet deployed</span
-                                    >
+                                    <span class="pending">Not deployed</span>
                                 </div>
                             </div>
                         </article>
@@ -2312,40 +3058,37 @@
                                 </div>
                                 <h3>Dev Stack — Technology Stack Builder</h3>
                                 <p>
-                                    An interactive single-page app for exploring
-                                    and curating frontend, backend, database,
-                                    and DevOps technologies. Built with React
-                                    19's new <code>use()</code>
-                                    hook to resolve a promise inside
-                                    <code>Suspense</code> (no
-                                    <code>useEffect</code> for data loading),
-                                    with strict TypeScript, component
-                                    composition, and toast notifications.
-                                    Includes duplicate-prevention logic, live
-                                    stack counting, and individual + bulk
-                                    removal. Ships with a written React
-                                    fundamentals Q&amp;A in the README.
+                                    An interactive SPA for exploring and
+                                    curating frontend, backend, database, and
+                                    DevOps technologies. Built with React 19's
+                                    new <code>use()</code> hook inside
+                                    <code>Suspense</code> — no
+                                    <code>useEffect</code> for data loading.
                                 </p>
                                 <div class="tags">
                                     <span>React 19</span><span>TypeScript</span
                                     ><span>Vite</span><span>Tailwind v4</span
-                                    ><span>DaisyUI</span
-                                    ><span>React Toastify</span
-                                    ><span>Suspense</span
-                                    ><span>use() hook</span>
+                                    ><span>DaisyUI</span><span>use() hook</span>
                                 </div>
                                 <div class="project-links">
+                                    <button
+                                        type="button"
+                                        class="view-details-btn"
+                                        data-project="dev-stack"
+                                    >
+                                        View Details →
+                                    </button>
                                     <a
                                         href="https://b14-dev-stack.netlify.app/"
                                         target="_blank"
                                         rel="noopener"
-                                        >Live Demo ↗</a
+                                        >Live ↗</a
                                     >
                                     <a
                                         href="https://github.com/nafiz-365/Dev-Stack"
                                         target="_blank"
                                         rel="noopener"
-                                        >Source Code ↗</a
+                                        >Code ↗</a
                                     >
                                 </div>
                             </div>
@@ -2541,10 +3284,8 @@
                                     A fully responsive marketing landing page
                                     for a veggie food brand, built with pure
                                     HTML and CSS — no JavaScript, no frameworks.
-                                    Includes a CSS-only mobile hamburger menu,
-                                    custom property design tokens, Grid/Flexbox
-                                    layouts, hover micro-interactions, and SEO
-                                    meta tags. Deployed on GitHub Pages.
+                                    CSS-only mobile menu, custom property design
+                                    tokens, and hover micro-interactions.
                                 </p>
                                 <div class="tags">
                                     <span>HTML5</span><span>CSS3</span
@@ -2552,17 +3293,24 @@
                                     ><span>Responsive</span><span>SEO</span>
                                 </div>
                                 <div class="project-links">
+                                    <button
+                                        type="button"
+                                        class="view-details-btn"
+                                        data-project="foodies"
+                                    >
+                                        View Details →
+                                    </button>
                                     <a
                                         href="https://nafiz-365.github.io/Foodies/"
                                         target="_blank"
                                         rel="noopener"
-                                        >Live Demo ↗</a
+                                        >Live ↗</a
                                     >
                                     <a
                                         href="https://github.com/nafiz-365/Foodies"
                                         target="_blank"
                                         rel="noopener"
-                                        >Source Code ↗</a
+                                        >Code ↗</a
                                     >
                                 </div>
                             </div>
@@ -2801,36 +3549,40 @@
                                 <div class="project-number">
                                     PROJECT / 06 · LIVE
                                 </div>
-                                <h3>
-                                    Beats Learning — Online Course Landing Page
-                                </h3>
+                                <h3>Beats Learning — Online Course Landing</h3>
                                 <p>
                                     A responsive online learning platform
                                     landing page built with pure HTML and CSS.
-                                    Features a sticky nav with CSS-only mobile
-                                    toggle, animated hero with floating icons,
-                                    course cards with meta-data, a chat-bubble
-                                    newsletter section, and a multi-column
+                                    Sticky nav with CSS-only mobile toggle,
+                                    animated hero with floating icons, course
+                                    cards with metadata, and a multi-column
                                     footer.
                                 </p>
                                 <div class="tags">
                                     <span>HTML5</span><span>CSS3</span
-                                    ><span>CSS Animations</span
-                                    ><span>Flexbox</span><span>Responsive</span
+                                    ><span>Animations</span><span>Flexbox</span
+                                    ><span>Responsive</span
                                     ><span>Accessibility</span>
                                 </div>
                                 <div class="project-links">
+                                    <button
+                                        type="button"
+                                        class="view-details-btn"
+                                        data-project="beats-learning"
+                                    >
+                                        View Details →
+                                    </button>
                                     <a
                                         href="https://nafiz-365.github.io/Beats-Learning-Project/"
                                         target="_blank"
                                         rel="noopener"
-                                        >Live Demo ↗</a
+                                        >Live ↗</a
                                     >
                                     <a
                                         href="https://github.com/nafiz-365/Beats-Learning-Project"
                                         target="_blank"
                                         rel="noopener"
-                                        >Source Code ↗</a
+                                        >Code ↗</a
                                     >
                                 </div>
                             </div>
@@ -2969,15 +3721,6 @@
                                                         var(--line);
                                                 "
                                             ></div>
-                                            <div
-                                                style="
-                                                    width: 16px;
-                                                    height: 7px;
-                                                    border-radius: 4px;
-                                                    border: 1px solid
-                                                        var(--line);
-                                                "
-                                            ></div>
                                         </div>
                                         <div
                                             style="
@@ -3025,15 +3768,6 @@
                                                         height: 3px;
                                                         background: var(--line);
                                                         border-radius: 1px;
-                                                        margin-bottom: 2px;
-                                                    "
-                                                ></div>
-                                                <div
-                                                    style="
-                                                        width: 55%;
-                                                        height: 3px;
-                                                        background: var(--line);
-                                                        border-radius: 1px;
                                                     "
                                                 ></div>
                                             </div>
@@ -3070,15 +3804,6 @@
                                                 <div
                                                     style="
                                                         width: 70%;
-                                                        height: 3px;
-                                                        background: var(--line);
-                                                        border-radius: 1px;
-                                                        margin-bottom: 2px;
-                                                    "
-                                                ></div>
-                                                <div
-                                                    style="
-                                                        width: 45%;
                                                         height: 3px;
                                                         background: var(--line);
                                                         border-radius: 1px;
@@ -3121,87 +3846,6 @@
                                                         height: 3px;
                                                         background: var(--line);
                                                         border-radius: 1px;
-                                                        margin-bottom: 2px;
-                                                    "
-                                                ></div>
-                                                <div
-                                                    style="
-                                                        width: 60%;
-                                                        height: 3px;
-                                                        background: var(--line);
-                                                        border-radius: 1px;
-                                                    "
-                                                ></div>
-                                            </div>
-                                        </div>
-                                        <div
-                                            style="
-                                                display: grid;
-                                                grid-template-columns: repeat(
-                                                    3,
-                                                    1fr
-                                                );
-                                                gap: 4px;
-                                                margin-top: 6px;
-                                                padding-top: 6px;
-                                                border-top: 1px solid
-                                                    var(--line);
-                                            "
-                                        >
-                                            <div>
-                                                <div
-                                                    style="
-                                                        width: 60%;
-                                                        height: 3px;
-                                                        background: var(--line);
-                                                        border-radius: 1px;
-                                                        margin-bottom: 3px;
-                                                    "
-                                                ></div>
-                                                <div
-                                                    style="
-                                                        width: 12px;
-                                                        height: 9px;
-                                                        background: #ccff00;
-                                                        border-radius: 2px;
-                                                    "
-                                                ></div>
-                                            </div>
-                                            <div>
-                                                <div
-                                                    style="
-                                                        width: 60%;
-                                                        height: 3px;
-                                                        background: var(--line);
-                                                        border-radius: 1px;
-                                                        margin-bottom: 3px;
-                                                    "
-                                                ></div>
-                                                <div
-                                                    style="
-                                                        width: 12px;
-                                                        height: 9px;
-                                                        background: var(--line);
-                                                        border-radius: 2px;
-                                                    "
-                                                ></div>
-                                            </div>
-                                            <div>
-                                                <div
-                                                    style="
-                                                        width: 60%;
-                                                        height: 3px;
-                                                        background: var(--line);
-                                                        border-radius: 1px;
-                                                        margin-bottom: 3px;
-                                                    "
-                                                ></div>
-                                                <div
-                                                    style="
-                                                        width: 12px;
-                                                        height: 9px;
-                                                        background: var(--line);
-                                                        border-radius: 2px;
                                                     "
                                                 ></div>
                                             </div>
@@ -3213,51 +3857,41 @@
                                 <div class="project-number">
                                     PROJECT / 07 · LIVE
                                 </div>
-                                <h3>
-                                    FitLog — Workout Library &amp; Training
-                                    Planner
-                                </h3>
+                                <h3>FitLog — Workout Library &amp; Planner</h3>
                                 <p>
-                                    A dark, high-performance gym companion built
-                                    on Next.js 16's App Router with React 19 and
-                                    strict TypeScript. Twelve lifts with instant
-                                    search and muscle-group filtering, a dynamic
-                                    <code>/exercise/[id]</code> detail route
-                                    with step-by-step instructions, and a live
-                                    metrics dashboard that recalculates exercise
-                                    count, minutes, and calories on every add or
-                                    remove. Enforces a 5-lift daily cap,
-                                    multi-criteria sorting, and a "mark as done"
-                                    state, while persisting today's plan, saved
-                                    lifts, and completions to
-                                    <code>localStorage</code> without hydration
-                                    mismatch. Ships a bundled fallback dataset
-                                    so the UI never breaks when the Cloudflare
-                                    Worker API is unavailable, plus custom
-                                    <code>loading</code> and
-                                    <code>404</code> routes.
+                                    A dark-themed gym companion on Next.js 16's
+                                    App Router. Twelve lifts with search and
+                                    filtering, dynamic detail routes, live plan
+                                    metrics, 5-lift cap, sorting, done state,
+                                    localStorage persistence, and a bundled
+                                    fallback dataset.
                                 </p>
                                 <div class="tags">
                                     <span>Next.js 16</span><span>React 19</span
                                     ><span>TypeScript</span
                                     ><span>Tailwind v4</span
                                     ><span>Context API</span
-                                    ><span>localStorage</span><span>Lucide</span
-                                    ><span>DaisyUI</span
-                                    ><span>Cloudflare Workers</span>
+                                    ><span>localStorage</span>
                                 </div>
                                 <div class="project-links">
+                                    <button
+                                        type="button"
+                                        class="view-details-btn"
+                                        data-project="fitlog"
+                                    >
+                                        View Details →
+                                    </button>
                                     <a
                                         href="https://b14-fit-log.netlify.app/"
                                         target="_blank"
                                         rel="noopener"
-                                        >Live Demo ↗</a
+                                        >Live ↗</a
                                     >
                                     <a
                                         href="https://github.com/nafiz-365/nafiz-365-fit-log"
                                         target="_blank"
                                         rel="noopener"
-                                        >Source Code ↗</a
+                                        >Code ↗</a
                                     >
                                 </div>
                             </div>
@@ -3409,38 +4043,6 @@
                                                     "
                                                 ></div>
                                             </div>
-                                            <div
-                                                style="
-                                                    display: flex;
-                                                    gap: 3px;
-                                                    align-items: center;
-                                                "
-                                            >
-                                                <span style="font-size: 8px"
-                                                    >🐟</span
-                                                >
-                                                <div
-                                                    style="
-                                                        width: 22px;
-                                                        height: 3px;
-                                                        background: rgba(
-                                                            255,
-                                                            255,
-                                                            255,
-                                                            0.35
-                                                        );
-                                                        border-radius: 1px;
-                                                    "
-                                                ></div>
-                                                <div
-                                                    style="
-                                                        width: 14px;
-                                                        height: 3px;
-                                                        background: #ef4444;
-                                                        border-radius: 1px;
-                                                    "
-                                                ></div>
-                                            </div>
                                         </div>
                                         <div
                                             style="
@@ -3454,16 +4056,6 @@
                                                     flex: 1;
                                                     height: 10px;
                                                     background: #16a34a;
-                                                    border-radius: 4px;
-                                                "
-                                            ></div>
-                                            <div
-                                                style="
-                                                    flex: 1;
-                                                    height: 10px;
-                                                    border: 1px solid
-                                                        var(--line);
-                                                    background: var(--panel);
                                                     border-radius: 4px;
                                                 "
                                             ></div>
@@ -3695,45 +4287,37 @@
                                 <h3>BazarDor — Bangla Market Price Tracker</h3>
                                 <p>
                                     A Bangla-first essential-goods price tracker
-                                    for markets across Bangladesh. Real auth
-                                    system with three sign-in paths — email and
-                                    password, Google OAuth, and GitHub OAuth —
-                                    persisting to MongoDB Atlas through
-                                    BetterAuth's adapter. The product detail
-                                    page is gated server-side with
-                                    <code>auth.api.getSession()</code> before
-                                    the page ever renders, so unauthenticated
-                                    users are redirected instead of seeing a
-                                    flash of content. The API layer tries a
-                                    primary origin and a fallback origin in
-                                    sequence, so a single provider outage
-                                    doesn't break the price ticker or product
-                                    grids. Home risers and fallers are computed
-                                    on the server via
-                                    <code>force-dynamic</code> pages, and the
-                                    entire UI — dates, numbers, and messages —
-                                    is rendered in Bangla.
+                                    for markets across Bangladesh. BetterAuth
+                                    with Google and GitHub OAuth, MongoDB Atlas,
+                                    server-side gated product pages, two-tier
+                                    API fallback, and a fully Bangla UI with
+                                    Bengali digits.
                                 </p>
                                 <div class="tags">
                                     <span>Next.js 16</span><span>React 19</span
                                     ><span>TypeScript</span
-                                    ><span>Tailwind v4</span
                                     ><span>BetterAuth</span><span>MongoDB</span
-                                    ><span>OAuth</span
-                                    ><span>Server Components</span>
+                                    ><span>OAuth</span>
                                 </div>
                                 <div class="project-links">
+                                    <button
+                                        type="button"
+                                        class="view-details-btn"
+                                        data-project="bazardor"
+                                    >
+                                        View Details →
+                                    </button>
                                     <a
                                         href="https://bazar-dor-bd63c31fa7ff.herokuapp.com/"
                                         target="_blank"
                                         rel="noopener"
-                                        >Live Demo ↗</a
+                                        >Live ↗</a
                                     >
                                     <a
                                         href="https://github.com/nafiz-365/nafiz-365-bazar-dor"
                                         target="_blank"
                                         rel="noopener"
-                                        >Source Code ↗</a
+                                        >Code ↗</a
                                     >
                                 </div>
                             </div>
@@ -3837,7 +4421,6 @@
                                                             0.8
                                                         );
                                                         border-radius: 1px;
-                                                        flex-shrink: 0;
                                                     "
                                                 ></div>
                                                 <div
@@ -3851,7 +4434,6 @@
                                                             255,
                                                             0.5
                                                         );
-                                                        flex-shrink: 0;
                                                     "
                                                 ></div>
                                                 <div
@@ -3865,90 +4447,9 @@
                                                             0.6
                                                         );
                                                         border-radius: 1px;
-                                                        flex-shrink: 0;
-                                                    "
-                                                ></div>
-                                                <div
-                                                    style="
-                                                        width: 3px;
-                                                        height: 3px;
-                                                        border-radius: 50%;
-                                                        background: rgba(
-                                                            255,
-                                                            255,
-                                                            255,
-                                                            0.5
-                                                        );
-                                                        flex-shrink: 0;
-                                                    "
-                                                ></div>
-                                                <div
-                                                    style="
-                                                        width: 28px;
-                                                        height: 3px;
-                                                        background: rgba(
-                                                            255,
-                                                            255,
-                                                            255,
-                                                            0.5
-                                                        );
-                                                        border-radius: 1px;
-                                                        flex-shrink: 0;
                                                     "
                                                 ></div>
                                             </div>
-                                        </div>
-                                        <div
-                                            style="
-                                                display: flex;
-                                                justify-content: center;
-                                                gap: 8px;
-                                                padding-bottom: 5px;
-                                                margin-bottom: 8px;
-                                                border-bottom: 1px solid
-                                                    var(--line);
-                                            "
-                                        >
-                                            <div
-                                                style="
-                                                    width: 14px;
-                                                    height: 4px;
-                                                    background: #dc2626;
-                                                    border-radius: 2px;
-                                                "
-                                            ></div>
-                                            <div
-                                                style="
-                                                    width: 14px;
-                                                    height: 4px;
-                                                    background: var(--line);
-                                                    border-radius: 2px;
-                                                "
-                                            ></div>
-                                            <div
-                                                style="
-                                                    width: 14px;
-                                                    height: 4px;
-                                                    background: var(--line);
-                                                    border-radius: 2px;
-                                                "
-                                            ></div>
-                                            <div
-                                                style="
-                                                    width: 14px;
-                                                    height: 4px;
-                                                    background: var(--line);
-                                                    border-radius: 2px;
-                                                "
-                                            ></div>
-                                            <div
-                                                style="
-                                                    width: 14px;
-                                                    height: 4px;
-                                                    background: var(--line);
-                                                    border-radius: 2px;
-                                                "
-                                            ></div>
                                         </div>
                                         <div
                                             style="
@@ -3995,25 +4496,6 @@
                                                         background: var(--line);
                                                         border-radius: 1px;
                                                         margin-bottom: 4px;
-                                                    "
-                                                ></div>
-                                                <div
-                                                    style="
-                                                        width: 88%;
-                                                        height: 2px;
-                                                        background: var(--line);
-                                                        border-radius: 1px;
-                                                        margin-bottom: 2px;
-                                                        opacity: 0.6;
-                                                    "
-                                                ></div>
-                                                <div
-                                                    style="
-                                                        width: 70%;
-                                                        height: 2px;
-                                                        background: var(--line);
-                                                        border-radius: 1px;
-                                                        opacity: 0.6;
                                                     "
                                                 ></div>
                                             </div>
@@ -4081,7 +4563,6 @@
                                                         display: flex;
                                                         gap: 4px;
                                                         align-items: flex-start;
-                                                        margin-bottom: 5px;
                                                     "
                                                 >
                                                     <span
@@ -4117,46 +4598,6 @@
                                                         ></div>
                                                     </div>
                                                 </div>
-                                                <div
-                                                    style="
-                                                        display: flex;
-                                                        gap: 4px;
-                                                        align-items: flex-start;
-                                                    "
-                                                >
-                                                    <span
-                                                        style="
-                                                            font-size: 7px;
-                                                            font-weight: 800;
-                                                            color: var(--muted);
-                                                            line-height: 1;
-                                                        "
-                                                        >3</span
-                                                    >
-                                                    <div style="flex: 1">
-                                                        <div
-                                                            style="
-                                                                width: 92%;
-                                                                height: 2px;
-                                                                background: var(
-                                                                    --line
-                                                                );
-                                                                border-radius: 1px;
-                                                                margin-bottom: 2px;
-                                                            "
-                                                        ></div>
-                                                        <div
-                                                            style="
-                                                                width: 52%;
-                                                                height: 2px;
-                                                                background: var(
-                                                                    --line
-                                                                );
-                                                                border-radius: 1px;
-                                                            "
-                                                        ></div>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -4169,40 +4610,34 @@
                                 <h3>News-365 — Bangla News Aggregator</h3>
                                 <p>
                                     A Bangla-language news reader built almost
-                                    entirely out of async server components. The
-                                    home page fetches sections, the marquee
-                                    fetches headlines, the navbar fetches
-                                    categories, and the sidebar fetches
-                                    most-read — four independent requests that
-                                    render in parallel, and each one fails in
-                                    isolation. Every request is wrapped in
-                                    <code>AbortSignal.timeout(10000)</code>, and
-                                    every JSON payload is validated at runtime
-                                    with hand-written type guards before it
-                                    reaches a component, so a malformed upstream
-                                    response can't crash the page. The article
-                                    body arrives as a deeply nested BlockNote
-                                    structure and is safely flattened into
-                                    readable paragraphs with a plain-text
-                                    fallback.
+                                    entirely out of async server components.
+                                    Four independent data fetches run in
+                                    parallel, each fails in isolation, and every
+                                    JSON payload is validated at runtime with
+                                    hand-written type guards.
                                 </p>
                                 <div class="tags">
                                     <span>Next.js 16</span><span>React 19</span
                                     ><span>TypeScript</span
-                                    ><span>Tailwind v4</span><span>DaisyUI</span
+                                    ><span>Tailwind v4</span
                                     ><span>Server Components</span
                                     ><span>AbortController</span>
                                 </div>
                                 <div class="project-links">
+                                    <button
+                                        type="button"
+                                        class="view-details-btn"
+                                        data-project="news-365"
+                                    >
+                                        View Details →
+                                    </button>
                                     <a
                                         href="https://github.com/nafiz-365/nafiz-365-news-365"
                                         target="_blank"
                                         rel="noopener"
-                                        >Source Code ↗</a
+                                        >Code ↗</a
                                     >
-                                    <span class="pending"
-                                        >Live demo not yet deployed</span
-                                    >
+                                    <span class="pending">Not deployed</span>
                                 </div>
                             </div>
                         </article>
@@ -4220,7 +4655,7 @@
             <section class="section" id="journey">
                 <div class="container journey-grid">
                     <div class="reveal">
-                        <p class="eyebrow">04 — Learning journey</p>
+                        <p class="eyebrow">06 — Learning journey</p>
                         <h2>
                             Progress over<br /><span class="accent"
                                 >perfection.</span
@@ -4336,7 +4771,8 @@
                         <article class="timeline-item reveal">
                             <div class="timeline-date">2025 · SHIPPED</div>
                             <h3>
-                                Foodies & Beats Learning — Static Landing Pages
+                                Foodies &amp; Beats Learning — Static Landing
+                                Pages
                             </h3>
                             <div class="sub">
                                 HTML5 · CSS3 · CSS Grid · Flexbox · Animations
@@ -4351,7 +4787,7 @@
                         </article>
                         <article class="timeline-item reveal">
                             <div class="timeline-date">ONGOING</div>
-                            <h3>Backend & AI Fundamentals</h3>
+                            <h3>Backend &amp; AI Fundamentals</h3>
                             <div class="sub">
                                 Node.js · Express · Prisma · LLM Integration
                             </div>
@@ -4383,7 +4819,7 @@
                 <div class="container">
                     <div class="contact-card reveal">
                         <div>
-                            <p class="eyebrow">05 — Contact</p>
+                            <p class="eyebrow">07 — Contact</p>
                             <h2>
                                 Have an idea?<br /><span class="accent"
                                     >Let's connect.</span
@@ -4392,8 +4828,8 @@
                             <p class="contact-copy">
                                 I'm open to connecting with fellow learners,
                                 developers, and people interested in building
-                                for the web. Reach out by email, phone, or any
-                                of the social links below.
+                                for the web. Reach out by email, phone,
+                                WhatsApp, or any of the social links below.
                             </p>
                             <a
                                 class="btn btn-primary"
@@ -4412,6 +4848,15 @@
                                 <small>Phone</small
                                 ><a href="tel:+8801637903619"
                                     >+880 1637 903619</a
+                                >
+                            </div>
+                            <div class="contact-item">
+                                <small>WhatsApp</small
+                                ><a
+                                    href="https://wa.me/8801637903619"
+                                    target="_blank"
+                                    rel="noopener"
+                                    >Chat on WhatsApp ↗</a
                                 >
                             </div>
                             <div class="contact-item">
@@ -4452,12 +4897,27 @@
             <div class="container footer-inner">
                 <p>
                     © <span id="year"></span>
-                    <strong>Nafiz Kamal Talha</strong>. Built with curiosity &
-                    code.
+                    <strong>Nafiz Kamal Talha</strong>. Built with curiosity
+                    &amp; code.
                 </p>
                 <a class="back-top" href="#home">BACK TO TOP ↑</a>
             </div>
         </footer>
+
+        <!-- Project detail page (overlay) -->
+        <div class="detail-page" id="detailPage" aria-hidden="true">
+            <div class="detail-inner">
+                <button
+                    type="button"
+                    class="detail-back"
+                    id="detailBack"
+                    aria-label="Back to projects"
+                >
+                    ← Back to projects
+                </button>
+                <div id="detailContent"></div>
+            </div>
+        </div>
 
         <script>
             const header = document.getElementById("header");
@@ -4561,6 +5021,420 @@
 
             document.getElementById("year").textContent =
                 new Date().getFullYear();
+
+            /* ============================================================
+               PROJECT DETAIL DATA + LOGIC
+               ============================================================ */
+            const projectDetails = {
+                "cf-visualizer": {
+                    number: "01",
+                    status: "LIVE",
+                    title: "CF Visualizer",
+                    subtitle: "AI-Powered Codeforces Analytics",
+                    overview:
+                        "A full-stack analytics platform for competitive programmers that combines a rate-limited Codeforces API proxy with multi-provider AI coaching. Includes heatmaps, rating charts, radar strength mapping, problem bookmarking with tags, and shareable profile cards.",
+                    stack: [
+                        "React 19",
+                        "TypeScript",
+                        "Express.js",
+                        "SQLite / Turso",
+                        "JWT Auth",
+                        "Gemini AI",
+                        "Recharts",
+                        "Tailwind v4",
+                        "Vercel",
+                    ],
+                    live: "https://cf-visualizer-project.vercel.app/",
+                    repo: "https://github.com/nafiz-365/nafiz-365-cf-visualizer-project",
+                    challenges: [
+                        "Designing a rate-limit-safe proxy around the Codeforces API without stale data — solved with a custom LRU cache plus a 250ms throttle that prevents 429 errors.",
+                        "Handling multi-provider AI failures gracefully — Gemini and GPT-4o-mini via OpenRouter, with automatic fallback when one provider is unavailable.",
+                        "Preventing hydration mismatches while reading JWT from HttpOnly cookies in a React 19 + Express split architecture.",
+                    ],
+                    improvements: [
+                        "Add a real-time contest replay mode that shows your progress against other solvers.",
+                        "Refine the AI coaching prompts using user feedback data from actual practice sessions.",
+                        "Add leaderboards so peers can compare strengths across problem tags.",
+                        "Build a mobile companion app that reuses the existing Express API.",
+                    ],
+                },
+                financeflow: {
+                    number: "02",
+                    status: "LIVE",
+                    title: "FinanceFlow Pro",
+                    subtitle: "Full-Stack Double-Entry Accounting App",
+                    overview:
+                        "A double-entry bookkeeping application with JWT-authenticated accounts, a chart of accounts, journal and adjusting entries, and auto-generated General Ledger, Trial Balance, Income Statement, and Balance Sheet reports. Includes multi-currency formatting, printable reports, and a fully responsive UI.",
+                    stack: [
+                        "React 19",
+                        "Vite",
+                        "Tailwind CSS",
+                        "Express.js",
+                        "SQLite",
+                        "JWT Auth",
+                        "REST API",
+                    ],
+                    live: "https://accounting-app-nafiz-365.netlify.app/",
+                    repo: "https://github.com/nafiz-365/nafiz-365-accounting-app",
+                    challenges: [
+                        "Getting double-entry bookkeeping logic right — every debit must have a matching credit, and any mismatch needs to be caught before reports are generated.",
+                        "Formatting report output consistently across multiple currencies, especially when totals need to sum from different currency lines.",
+                        "Making printable reports (GL, TB, IS, BS) look clean on standard paper sizes without layout breakage.",
+                    ],
+                    improvements: [
+                        "Add recurring transactions and bank CSV import so users can sync real data instead of typing each entry.",
+                        "Generate tax-ready exports (VAT, income tax schedules) that accountants can hand off.",
+                        "Support multi-entity books so a single user can manage several businesses.",
+                        "Add budget tracking vs. actuals with charts for month-over-month spend.",
+                    ],
+                },
+                "varsity-portal": {
+                    number: "03",
+                    status: "IN DEVELOPMENT",
+                    title: "Varsity Portal",
+                    subtitle: "Role-Based Attendance Management System",
+                    overview:
+                        "A full-stack university attendance system with role-based dashboards for admins, teachers, and students. Features JWT authentication with middleware route protection, timetable scheduling, bulk attendance marking, leave workflows, broadcast notices, Excel bulk import, and PDF/Excel report exports.",
+                    stack: [
+                        "Next.js 16",
+                        "TypeScript",
+                        "React 19",
+                        "Prisma",
+                        "MySQL",
+                        "Tailwind CSS",
+                        "Radix UI",
+                        "JWT",
+                    ],
+                    live: null,
+                    repo: "https://github.com/nafiz-365/nafiz-365-attendance-system",
+                    challenges: [
+                        "Designing role-based dashboards where each role sees a different subset of data without duplicating components — solved with a shared layout plus conditionally rendered modules.",
+                        "Excel import validation for bulk attendance — catching malformed rows, missing students, and duplicate entries before they hit the database.",
+                        "Generating PDF/Excel report exports from Next.js without a heavy server, using client-side generation with server-side data hydration.",
+                    ],
+                    improvements: [
+                        "Add real-time attendance views using WebSockets so faculty can see classes filling up live.",
+                        "Integrate with the university's existing ERP for student roster synchronization.",
+                        "Build a mobile student view with push notifications for attendance and leave approvals.",
+                        "Add analytics for faculty performance and student attendance trends.",
+                    ],
+                },
+                "dev-stack": {
+                    number: "04",
+                    status: "LIVE",
+                    title: "Dev Stack",
+                    subtitle: "Interactive Technology Stack Builder",
+                    overview:
+                        "An interactive single-page app for exploring and curating frontend, backend, database, and DevOps technologies. Built with React 19's new use() hook to resolve a promise inside Suspense — no useEffect for data loading. Includes duplicate-prevention, live stack counting, and toast notifications.",
+                    stack: [
+                        "React 19",
+                        "TypeScript",
+                        "Vite",
+                        "Tailwind v4",
+                        "DaisyUI",
+                        "React Toastify",
+                        "Suspense",
+                        "use() hook",
+                    ],
+                    live: "https://b14-dev-stack.netlify.app/",
+                    repo: "https://github.com/nafiz-365/Dev-Stack",
+                    challenges: [
+                        "Learning React 19's new use() hook for data fetching and correctly typing the Suspense fallback boundary.",
+                        "Preventing duplicate entries when combining multiple stacks — required careful set logic and user feedback.",
+                        "Handling toast notifications without cluttering the UI, especially during rapid add/remove actions.",
+                    ],
+                    improvements: [
+                        "Add authentication and persistent stacks so users can save and share configurations.",
+                        "Allow exporting stacks as JSON, Markdown, or starter code snippets.",
+                        "Integrate with the GitHub API to auto-detect a repo's actual stack from package.json.",
+                        "Add a side-by-side comparison view for evaluating two candidate stacks.",
+                    ],
+                },
+                foodies: {
+                    number: "05",
+                    status: "LIVE",
+                    title: "Foodies",
+                    subtitle: "Veggie Food Landing Page",
+                    overview:
+                        "A fully responsive marketing landing page for a veggie food brand, built with pure HTML and CSS — no JavaScript, no frameworks. Includes a CSS-only mobile hamburger menu, custom property design tokens, Grid/Flexbox layouts, hover micro-interactions, and SEO meta tags.",
+                    stack: [
+                        "HTML5",
+                        "CSS3",
+                        "CSS Grid",
+                        "Flexbox",
+                        "Responsive",
+                        "SEO",
+                        "GitHub Pages",
+                    ],
+                    live: "https://nafiz-365.github.io/Foodies/",
+                    repo: "https://github.com/nafiz-365/Foodies",
+                    challenges: [
+                        "Building a fully responsive navigation with a working mobile menu using only CSS — no JavaScript toggle required.",
+                        "Achieving smooth hover animations without impacting scroll performance on mobile devices.",
+                        "Ensuring color contrast passes WCAG guidelines while sticking to a green brand palette.",
+                    ],
+                    improvements: [
+                        "Add a recipe detail page with pure HTML/CSS for each dish.",
+                        "Integrate a real menu with pricing so the page could actually go live for a client.",
+                        "Add a contact form (requires a backend or a form service like Formspree).",
+                        "Enhance SEO further with structured data (Recipe, LocalBusiness).",
+                    ],
+                },
+                "beats-learning": {
+                    number: "06",
+                    status: "LIVE",
+                    title: "Beats Learning",
+                    subtitle: "Online Course Landing Page",
+                    overview:
+                        "A responsive online learning platform landing page built with pure HTML and CSS. Features a sticky nav with CSS-only mobile toggle, animated hero with floating icons, course cards with metadata, a chat-bubble newsletter section, and a multi-column footer.",
+                    stack: [
+                        "HTML5",
+                        "CSS3",
+                        "CSS Animations",
+                        "Flexbox",
+                        "Responsive",
+                        "Accessibility",
+                    ],
+                    live: "https://nafiz-365.github.io/Beats-Learning-Project/",
+                    repo: "https://github.com/nafiz-365/Beats-Learning-Project",
+                    challenges: [
+                        "Creating a sticky nav that doesn't overlap content when scrolling — solved with careful z-index and padding management.",
+                        "Animating the hero's floating icons without triggering layout shifts (used absolute positioning plus transform).",
+                        "Keeping the chat-bubble newsletter section accessible for screen readers (proper labels, focus states, semantic markup).",
+                    ],
+                    improvements: [
+                        "Add actual course detail pages so users can preview lessons.",
+                        "Integrate Stripe Checkout for paid enrollment.",
+                        "Add video previews for each course card.",
+                        "Build a student dashboard with progress tracking (would need a backend).",
+                    ],
+                },
+                fitlog: {
+                    number: "07",
+                    status: "LIVE",
+                    title: "FitLog",
+                    subtitle: "Workout Library and Training Planner",
+                    overview:
+                        "A dark, high-performance gym companion built on Next.js 16's App Router with React 19 and strict TypeScript. Twelve lifts with instant search and muscle-group filtering, a dynamic exercise detail route, and a live metrics dashboard. Enforces a 5-lift daily cap, multi-criteria sorting, mark-as-done state, localStorage persistence, and a bundled fallback dataset.",
+                    stack: [
+                        "Next.js 16",
+                        "React 19",
+                        "TypeScript",
+                        "Tailwind v4",
+                        "Context API",
+                        "localStorage",
+                        "Lucide",
+                        "DaisyUI",
+                        "Cloudflare Workers",
+                    ],
+                    live: "https://b14-fit-log.netlify.app/",
+                    repo: "https://github.com/nafiz-365/nafiz-365-fit-log",
+                    challenges: [
+                        "Preventing hydration mismatches when loading plan state from localStorage — solved with queueMicrotask and an isLoaded flag that delays rendering until the client syncs.",
+                        "Enforcing a 5-lift cap gracefully in the UI without disabling buttons abruptly — used contextual labels like Plan Full (5 max) instead of just disabled states.",
+                        "Keeping the UI functional when the upstream Cloudflare Worker API is down — solved with a bundled fallback dataset that kicks in seamlessly.",
+                    ],
+                    improvements: [
+                        "Add real backend persistence with user accounts so plans survive across devices.",
+                        "Add weekly progress charts that visualize volume and consistency over time.",
+                        "Integrate with wearables (Apple Health, Google Fit) for calorie accuracy.",
+                        "Add a shareable workout plan URL for users to recommend routines to friends.",
+                    ],
+                },
+                bazardor: {
+                    number: "08",
+                    status: "LIVE",
+                    title: "BazarDor",
+                    subtitle: "Bangla Market Price Tracker",
+                    overview:
+                        "A Bangla-first essential-goods price tracker for markets across Bangladesh. Real auth system with three sign-in paths (email/password, Google, GitHub) persisting to MongoDB Atlas via BetterAuth. Server-side gated product pages, a two-tier API fallback, and a fully Bangla UI with Bengali digits.",
+                    stack: [
+                        "Next.js 16",
+                        "React 19",
+                        "TypeScript",
+                        "Tailwind v4",
+                        "BetterAuth",
+                        "MongoDB",
+                        "OAuth",
+                        "Server Components",
+                    ],
+                    live: "https://bazar-dor-bd63c31fa7ff.herokuapp.com/",
+                    repo: "https://github.com/nafiz-365/nafiz-365-bazar-dor",
+                    challenges: [
+                        "Implementing BetterAuth's MongoDB adapter correctly in a Next.js App Router environment without edge runtime issues — required careful configuration of the route handler and session middleware.",
+                        "Building a two-tier API fallback so the price ticker doesn't break when one origin fails — the fetcher tries the primary origin, then the fallback, then returns null.",
+                        "Server-side redirect for unauthenticated product detail views — used auth.api.getSession() in a server component to check before rendering, preventing client-side flashes.",
+                    ],
+                    improvements: [
+                        "Add price alerts via email or browser notifications for selected products.",
+                        "Add historical trend charts with 30-day, 90-day, and 365-day toggles.",
+                        "Add cross-division price comparison so users can see regional variations.",
+                        "Build a marketplace for verified vendors to submit prices directly.",
+                    ],
+                },
+                "news-365": {
+                    number: "09",
+                    status: "IN DEVELOPMENT",
+                    title: "News-365",
+                    subtitle: "Bangla News Aggregator",
+                    overview:
+                        "A Bangla-language news reader built almost entirely out of async server components. Four independent data-fetching components render in parallel, each fails in isolation, and every JSON payload is validated at runtime with hand-written type guards before it reaches a component.",
+                    stack: [
+                        "Next.js 16",
+                        "React 19",
+                        "TypeScript",
+                        "Tailwind v4",
+                        "DaisyUI",
+                        "Server Components",
+                        "AbortController",
+                    ],
+                    live: null,
+                    repo: "https://github.com/nafiz-365/nafiz-365-news-365",
+                    challenges: [
+                        "Rendering four independent async server components that each fetch remote data — one failing must not break the rest, so each fetch is wrapped in its own try/catch.",
+                        "Flattening a deeply nested BlockNote article structure into readable paragraphs with proper fallbacks for missing blocks.",
+                        "Validating unknown JSON from an external API with hand-written type guards so a malformed upstream response can't crash the page.",
+                    ],
+                    improvements: [
+                        "Add search across articles and categories.",
+                        "Add a bookmark/save-article feature for signed-in users.",
+                        "Add per-category RSS feeds so users can subscribe.",
+                        "Add caching with Next.js revalidate to reduce upstream API load.",
+                    ],
+                },
+            };
+
+            const detailPage = document.getElementById("detailPage");
+            const detailContent = document.getElementById("detailContent");
+            const detailBack = document.getElementById("detailBack");
+            let lastTrigger = null;
+
+            function buildDetailHTML(p) {
+                const links = [];
+                if (p.live) {
+                    links.push(
+                        `<a href="${p.live}" target="_blank" rel="noopener">Live Demo ↗</a>`,
+                    );
+                } else {
+                    links.push(
+                        `<span class="pending">Live demo not yet deployed</span>`,
+                    );
+                }
+                if (p.repo) {
+                    links.push(
+                        `<a href="${p.repo}" target="_blank" rel="noopener">Source Code ↗</a>`,
+                    );
+                }
+
+                const challengesHTML = p.challenges
+                    .map((c) => `<li>${c}</li>`)
+                    .join("");
+                const improvementsHTML = p.improvements
+                    .map((i) => `<li>${i}</li>`)
+                    .join("");
+                const stackHTML = p.stack
+                    .map((t) => `<span>${t}</span>`)
+                    .join("");
+
+                return `
+                    <div class="detail-hero">
+                        <div class="detail-status">${p.status}</div>
+                        <div class="detail-number">PROJECT / ${p.number}</div>
+                        <h1 class="detail-title">${p.title}</h1>
+                        <p class="detail-subtitle">${p.subtitle}</p>
+                        <p class="detail-intro">${p.overview}</p>
+                    </div>
+                    <div class="detail-layout">
+                        <main class="detail-main">
+                            <section class="detail-section">
+                                <h2>Challenges Faced</h2>
+                                <ul class="detail-list">${challengesHTML}</ul>
+                            </section>
+                            <section class="detail-section">
+                                <h2>Future Improvements &amp; Plans</h2>
+                                <ul class="detail-list">${improvementsHTML}</ul>
+                            </section>
+                        </main>
+                        <aside class="detail-side">
+                            <div class="detail-card">
+                                <h3>Technology Stack</h3>
+                                <div class="tags">${stackHTML}</div>
+                            </div>
+                            <div class="detail-card">
+                                <h3>Links</h3>
+                                <div class="detail-links">
+                                    ${links.join("")}
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                `;
+            }
+
+            function openProject(id, trigger) {
+                const p = projectDetails[id];
+                if (!p) return;
+                lastTrigger = trigger || null;
+                detailContent.innerHTML = buildDetailHTML(p);
+                detailPage.classList.add("open");
+                detailPage.setAttribute("aria-hidden", "false");
+                document.body.classList.add("detail-open");
+                detailPage.scrollTop = 0;
+                detailBack.focus();
+                if (history.pushState) {
+                    history.pushState({ project: id }, "", "#project/" + id);
+                }
+            }
+
+            function closeProject() {
+                detailPage.classList.remove("open");
+                detailPage.setAttribute("aria-hidden", "true");
+                document.body.classList.remove("detail-open");
+                if (lastTrigger) lastTrigger.focus();
+                if (history.pushState) {
+                    history.pushState({}, "", "#projects");
+                }
+            }
+
+            document.querySelectorAll(".view-details-btn").forEach((btn) => {
+                btn.addEventListener("click", () =>
+                    openProject(btn.dataset.project, btn),
+                );
+            });
+
+            detailBack.addEventListener("click", closeProject);
+
+            document.addEventListener("keydown", (e) => {
+                if (
+                    e.key === "Escape" &&
+                    detailPage.classList.contains("open")
+                ) {
+                    closeProject();
+                }
+            });
+
+            // Handle browser back/forward + deep link on load
+            function syncFromHash() {
+                const hash = window.location.hash;
+                if (hash.startsWith("#project/")) {
+                    const id = hash.replace("#project/", "");
+                    if (projectDetails[id]) {
+                        const p = projectDetails[id];
+                        detailContent.innerHTML = buildDetailHTML(p);
+                        detailPage.classList.add("open");
+                        detailPage.setAttribute("aria-hidden", "false");
+                        document.body.classList.add("detail-open");
+                        detailPage.scrollTop = 0;
+                    }
+                } else if (detailPage.classList.contains("open")) {
+                    detailPage.classList.remove("open");
+                    detailPage.setAttribute("aria-hidden", "true");
+                    document.body.classList.remove("detail-open");
+                }
+            }
+
+            window.addEventListener("popstate", syncFromHash);
+            syncFromHash();
         </script>
     </body>
 </html>
